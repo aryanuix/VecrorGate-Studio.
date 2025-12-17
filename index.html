@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VectorGate Studio | UI/UX & Development</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+       (function(){ emailjs.init("w6CaAEwmjfZOSmGPY"); })();
+    </script>
+</head>
+<body>
+
+    <div id="contactSuccess" class="full-screen-overlay" style="display: none;">
+        <div class="success-content">
+            <div class="success-icon-box">
+                <img src="logo.png" alt="VectorGate" class="success-logo">
+            </div>
+            <h2>Message Received!</h2>
+            <p>Your launch code has been accepted.<br>We will establish contact within <strong>24 hours</strong>.</p>
+            <a href="index.html" onclick="location.reload()" class="btn secondary">Return to Base</a>
+        </div>
+    </div>
+
+    <div id="floating-icons"></div>
+
+    <nav class="glass-nav">
+        <div class="logo">VectorGate<span> Studio.</span></div>
+        <div class="menu-toggle" id="mobile-menu"><i class="fa-solid fa-bars"></i></div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#work">Our Work</a>
+            <a href="#templates">Templates</a>
+            <a href="#contact" class="cta-btn">Contact Us</a>
+        </div>
+    </nav>
+
+    <header class="hero" id="about">
+        <div class="hero-content hidden">
+            <h1>Who We Are &<br><span class="gradient-text">What We Do</span></h1>
+            <p class="hero-text">We help startups, entrepreneurs, and brands create digital experiences that truly stand out. We provide UI/UX Design, Brand Identity, Prototyping & Wireframing, Web & App Design, and many more.</p>
+            <div class="btn-group">
+                <a href="#services"><button class="btn primary">View Services</button></a>
+                <a href="#contact"><button class="btn secondary">Start Project</button></a>
+            </div>
+        </div>
+    </header>
+
+    <section id="services">
+        <div class="section-header hidden">
+            <h2>Our Expertise</h2>
+            <p>We don't just move pixels. We solve business problems.</p>
+        </div>
+        <div class="grid">
+            <div class="card glass hidden"><i class="fa-solid fa-pen-nib icon"></i><h3>UI/UX Design</h3><p>We turn complex ideas into clean, intuitive interfaces. From wireframes to high-fidelity prototypes, we design products users love.</p></div>
+            <div class="card glass hidden"><i class="fa-solid fa-code icon"></i><h3>Web Development</h3><p>Pixel-perfect development with <strong>Basic SEO setup</strong> and <strong>1 Year Free Hosting</strong>. We ensure your site is blazing fast and ready to launch.</p></div>
+            <div class="card glass hidden"><i class="fa-solid fa-mobile-screen-button icon"></i><h3>Mobile App Design</h3><p>Native iOS and Android designs that feel fluid. We focus on gestures, haptics, and micro-interactions.</p></div>
+            <div class="card glass hidden"><i class="fa-solid fa-swatchbook icon"></i><h3>Design Systems</h3><p>Stop designing from scratch. We build scalable component libraries so your team can ship 10x faster.</p></div>
+            <div class="card glass hidden"><i class="fa-solid fa-magnifying-glass-chart icon"></i><h3>UX Audits</h3><p>Already have a product? We analyze your user flows and identify exactly where you are losing revenue.</p></div>
+            <div class="card glass hidden"><i class="fa-solid fa-cubes icon"></i><h3>Motion & 3D</h3><p>Static is boring. We add cinema-grade animations and 3D elements to keep your users glued to the screen.</p></div>
+        </div>
+    </section>
+
+    <section id="work">
+        <div class="section-header hidden">
+            <h2>Selected Works</h2>
+            <p>Real results for real clients.</p>
+        </div>
+        <div class="work-container">
+            <div class="work-row hidden">
+                <div class="work-visual"><img src="FitFusion+.png" alt="FitFusion App"></div>
+                <div class="work-details">
+                    <div class="work-tags"><span>Figma</span><span>HealthTech</span></div>
+                    <h3>FitFusion+</h3>
+                    <p>A complete fitness tracking ecology designed to increase daily user engagement by 40%. We redesigned the user journey to focus on micro-wins and gamification.</p>
+                    <a href="https://www.behance.net/gallery/229570395/UI-UX-Case-Study-For-FitFusion" class="text-link">View Case Study <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="work-row reversed hidden">
+                <div class="work-visual"><img src="Bagsy.png" alt="Bagsy App"></div>
+                <div class="work-details">
+                    <div class="work-tags"><span>E-Commerce</span><span>Branding</span></div>
+                    <h3>Bagsy</h3>
+                    <p>Luxury e-commerce experience tailored for high-end fashion retail. The focus was on negative space, typography, and a "silky" smooth checkout process.</p>
+                    <a href="https://www.behance.net/gallery/229572823/Use-Case-Study-for-Bagsy?tracking_source=search_projects|bagsy&l=0" class="text-link">View Case Study <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="work-row hidden">
+                <div class="work-visual"><img src="Travel Go.png" alt="Travel Go"></div>
+                <div class="work-details">
+                    <div class="work-tags"><span>Web App</span><span>Booking Engine</span></div>
+                    <h3>TravelGo</h3>
+                    <p>Seamless travel booking engine with integrated itinerary management. We reduced the booking time from 5 minutes down to just 90 seconds.</p>
+                    <a href="https://www.behance.net/gallery/229571313/Web-App-Use-Case-Study-for-Travel-Go" class="text-link">View Case Study <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="templates">
+        <div class="section-header hidden">
+            <h2>Premium Resources</h2>
+            <p>Steal our workflow. Professional UI kits and systems.</p>
+        </div>
+        <div class="coming-soon-container glass hidden">
+            <div class="cs-content">
+                <div class="lock-icon"><i class="fa-solid fa-lock"></i></div>
+                <h3>The Vault is Opening Soon</h3>
+                <p>We are currently polishing our internal design systems for public release. <br>Join the waitlist to get <strong>10% OFF</strong> on launch day.</p>
+                <form id="waitlistForm" class="waitlist-form">
+                    <input type="text" name="user_name" id="wlName" placeholder="Your Name" required style="flex:1;" class="input-field">
+                    <input type="email" name="user_email" id="wlEmail" placeholder="Your Email Address" required style="flex:1.5;" class="input-field">
+                    <button type="submit" class="btn primary" id="wlSubmit">Notify Me</button>
+                </form>
+                <div id="wlSuccess" style="display: none; margin-top: 20px; color: #00ff88;">
+                    <i class="fa-solid fa-check-circle"></i> Check your inbox! We've sent you a confirmation.
+                </div>
+                <div class="launch-status"><span class="pulse-dot"></span> Status: In Final Review</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="contact-box glass hidden">
+            <div class="contact-left">
+                <h2 style="margin-bottom: 20px;">Ready to Dominate Your Niche?</h2>
+                <p style="margin-bottom: 30px; line-height: 1.6; color: var(--text-dim);">You don't need another freelancer. You need a partner. Whether you are building from scratch or rebranding, <strong>VectorGate Studio</strong> is here to make it seamless, intuitive, and stunning.</p>
+                <div class="founders-section">
+                    <h4 style="margin-bottom:15px; color:white;">The Minds Behind VectorGate Studio</h4>
+                    <div class="founder-card"><div class="founder-avatar">DG</div><div class="founder-info"><h5>Durga Kulkarni</h5><span>UI/UX Designer & Co-Founder</span></div></div>
+                    <div class="founder-card"><div class="founder-avatar">AS</div><div class="founder-info"><h5>Aryan Sunil Patil</h5><span>UI/UX Designer & Co-Founder</span></div></div>
+                </div>
+            </div>
+            <div class="contact-right">
+                <form id="contactForm" action="https://formspree.io/f/xrbnrlkg" method="POST">
+                    <div class="form-row">
+                        <input type="text" name="full_name" placeholder="Full Name" required class="input-field">
+                        <input type="text" name="budget" placeholder="Estimated Budget (e.g. ₹50k+)" class="input-field">
+                    </div>
+                    <div class="form-row">
+                        <input type="text" name="phone" placeholder="Phone Number" required class="input-field">
+                        <input type="email" name="email" placeholder="Email Address" required class="input-field">
+                    </div>
+                    <textarea name="message" rows="5" placeholder="Tell us about your vision..." class="input-field"></textarea>
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="terms" required> 
+                        <label for="terms">I agree to the Terms & Conditions and Privacy Policy.</label>
+                    </div>
+                    <button type="submit" class="btn primary full-width" id="contactBtn">Launch Project</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="centered-footer">
+        <h3>Or Reach Us At</h3>
+        <div class="contact-links">
+            <a href="mailto:vectorgatestudio@gmail.com" class="contact-item"><i class="fa-solid fa-envelope"></i><span>vectorgatestudio@gmail.com</span></a>
+            <a href="https://wa.me/918446100502" class="contact-item"><i class="fa-brands fa-whatsapp"></i><span>+91 9284799146</span></a>
+            <a href="https://www.instagram.com/vectorgate.studio/" class="contact-item"><i class="fa-brands fa-instagram"></i><span>@VectorGateStudio</span></a>
+        </div>
+        <div class="copyright">&copy; 2025 VectorGate Studio. All rights reserved.</div>
+    </footer>
+
+    <script src="script.js?v=100"></script>
+</body>
+</html>

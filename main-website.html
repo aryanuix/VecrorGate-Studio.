@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VectorGate AI</title>
+    <style>
+        :root {
+            --neon-blue: #00f3ff;
+            --neon-purple: #bc13fe;
+            --bg-color: #050505;
+            --panel-bg: #111;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: #eee;
+            font-family: 'Courier New', monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .container {
+            width: 90%;
+            max-width: 600px;
+            background: var(--panel-bg);
+            border: 1px solid #333;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.1);
+        }
+        h1 {
+            text-align: center;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 2rem;
+        }
+        textarea, select {
+            width: 100%;
+            background: #000;
+            border: 1px solid #333;
+            color: #fff;
+            padding: 12px;
+            margin-bottom: 1rem;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+            border: none;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+        button:disabled { opacity: 0.5; cursor: not-allowed; }
+        #output {
+            margin-top: 2rem;
+            min-height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #080808;
+            border: 1px dashed #333;
+        }
+        img, video { max-width: 100%; border: 1px solid var(--neon-blue); }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>VectorGate AI Studio</h1>
+
+    <select id="mode">
+        <option value="image">Generate Image (Flux)</option>
+        <option value="video">Generate Video (Zeroscope)</option>
+    </select>
+
+    <textarea id="prompt" rows="4" placeholder="Describe the cyberpunk visual you need..."></textarea>
+
+    <button id="generateBtn">Generate Asset</button>
+    <p id="status" style="text-align: center; font-size: 0.8rem; color: #666; margin-top: 10px;">System Standby</p>
+
+    <div id="output"></div>
+</div>
+
+<script>
+    const btn = document.getElementById('generateBtn');
+    const status = document.getElementById('status');
+    const output = document.getElementById('output');
+
+    btn.addEventListener('click', async () => {
+        const prompt = document.getElementById('prompt').value;
+        const mode = document.getElementById('mode').value;
+
+        if (!prompt) return alert("Enter a prompt.");
+
+        // UI Updates
+        btn.disabled = true;
+        btn.innerText = "Processing...";
+        status.innerText = ">> Sending request to server...";
+        output.innerHTML = "<span style='color:var(--neon-blue)'>Generating...</span>";
+
+        try {
+            // TALK TO YOUR LOCAL BACKEND, NOT REPLICATE DIRECTLY
+            const response = await fetch('http://localhost:3000/generate', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ prompt, type: mode })
+            });
+
+            const data = await response.json();
+
+            if (data.error) throw new Error(data.error);
+
+            // Render Result
+            output.innerHTML = "";
+            const resultUrl = Array.isArray(data.result) ? data.result[0] : data.result;
+
+            if (mode === 'video') {
+                const video = document.createElement('video');
+                video.src = resultUrl;
+                video.controls = true;
+                video.autoplay = true;
+                video.loop = true;
+                output.appendChild(video);
+            } else {
+                const img = document.createElement('img');
+                img.src = resultUrl;
+                output.appendChild(img);
+            }
+            status.innerText = ">> Asset Generated Successfully";
+
+        } catch (err) {
+            console.error(err);
+            output.innerHTML = `<span style="color:red">Error: ${err.message}</span>`;
+            status.innerText = ">> System Failure";
+        } finally {
+            btn.disabled = false;
+            btn.innerText = "Generate Asset";
+        }
+    });
+</script>
+
+</body>
+</html>
